@@ -1,0 +1,10 @@
+<li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown">
+    <i class="glyphicon glyphicon-cog"></i>
+  </a>
+  <ul class="dropdown-menu">
+    <li ng-click="click()" ng-repeat='link in links | semantics: {importance:"administrative"}'>
+      <a ng-bind="link._link.title"></a>
+    </li>
+  </ul>
+</li>

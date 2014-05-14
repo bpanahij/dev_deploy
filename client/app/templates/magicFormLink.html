@@ -1,0 +1,16 @@
+<a data-target="#{{link._link.title | fieldName}}"
+  role="button"
+  class="btn btn-primary"
+  ng-class="{
+  'btn-danger': link._link.method == 'DELETE',
+  'btn-info': !link._link.method,
+  'btn-success': link._link.method
+  }"
+  data-toggle="modal">
+  <i class="glyphicon" ng-class="{
+    'glyphicon-plus-sign': link._link.method == 'POST' || link._link.method == 'PUT',
+    'glyphicon-tags': link._link.properties,
+    'glyphicon-tags': !link._link.properties
+    }"></i>&nbsp;
+  <span ng-bind="link._link.title"></span>
+</a>

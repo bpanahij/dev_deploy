@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>PassportEDU</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/angular-drag-drop/css/draganddrop.css">
+  <link rel="stylesheet" type="text/css" href="/client.css">
+  <link rel="stylesheet" type="text/css" href="/css/animations.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<div class="container">
+  <div class="navbar-wrapper">
+    <div class="container">
+      <nav ng-cloak class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/#/api/v1">
+              <div class="hidden-xs">PassportEDU</div>
+
+              <div class="logoHolder visible-xs"></div>
+              <img class="passLogoMobile visible-xs" src="/assets/images/passportEDU_nb.png">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <magic-link ng-repeat='link in client.links | semantics: {importance: "navigation"}' click="traverse" link="link" ng-cloak></magic-link>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show='(client.links | semantics: {importance:"administrative"}).length'>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-cog"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li ng-click="traverse()" ng-repeat='link in client.links | semantics: {importance:"administrative"}'>
+                    <a ng-bind="link._link.title"></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <a href="/#/api/v1/students" type="submit" class="btn btn-sm btn-info">Student Login</a>
+              <a href="/#/api/v1/students/register" type="submit" class="btn btn-sm btn-info">Sign Up</a>
+              <a href="/#/api/v1/admissions/register" class="btn btn-sm btn-info">Admissions? Accept Applications</a>
+            </form>
+            <div class="navbar-right">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <nav ng-cloak class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/#/api/v1">
+          <div class=" hidden-xs">PassportEDU</div>
+
+          <div class="logoHolder visible-xs"></div>
+          <img class="passLogoMobile visible-xs" src="/assets/images/passportEDU_nb.png">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <magic-link ng-repeat='link in client.links | semantics: {importance: "navigation"}' click="traverse" link="link" ng-cloak></magic-link>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-show='(client.links | semantics: {importance:"administrative"}).length'>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              <i class="glyphicon glyphicon-cog"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li ng-click="traverse()" ng-repeat='link in client.links | semantics: {importance:"administrative"}'>
+                <a ng-bind="link._link.title"></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<script src="/libs/underscore-1.4.4.js"></script>
+<script src="/libs/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-42349667-1', 'passportedu.com');
+  ga('send', 'pageview');
+  var lastY;
+  $(document).bind('touchmove', function(e) {
+    var currentY = e.touches[0].clientY;
+    if (currentY !== lastY) {
+      // moved vertically
+      return;
+    }
+    lastY = currentY;
+    e.preventDefault();
+  });
+</script>
+
+</body>
+</html>

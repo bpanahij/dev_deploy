@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title>PassportEDU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+  <!-- start Mixpanel -->
+    <script type="text/javascript">(function(e, b) {
+        if (!b.__SV) {
+            var a, f, i, g;
+            window.mixpanel = b;
+            a = e.createElement("script");
+            a.type = "text/javascript";
+            a.async = !0;
+            a.src = ("https:" === e.location.protocol ? "https:" : "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';
+            f = e.getElementsByTagName("script")[0];
+            f.parentNode.insertBefore(a, f);
+            b._i = [];
+            b.init = function(a, e, d) {
+                function f(b, h) {
+                    var a = h.split(".");
+                    2 == a.length && (b = b[a[0]], h = a[1]);
+                    b[h] = function() {
+                        b.push([h].concat(Array.prototype.slice.call(arguments, 0)))
+                    }
+                }
+
+                var c = b;
+                "undefined" !== typeof d ? c = b[d] = [] : d = "mixpanel";
+                c.people = c.people || [];
+                c.toString = function(b) {
+                    var a = "mixpanel";
+                    "mixpanel" !== d && (a += "." + d);
+                    b || (a += " (stub)");
+                    return a
+                };
+                c.people.toString = function() {
+                    return c.toString(1) + ".people (stub)"
+                };
+                i = "disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+                for(g = 0; g < i.length; g++) {
+                    f(c, i[g]);
+                }
+                b._i.push([a, e, d])
+            };
+            b.__SV = 1.2
+        }
+    })(document, window.mixpanel || []);
+    mixpanel.init("d8f384ba6748ea5706693740e7cc1999");</script>
+</head>
+<body class="landing">
+<div class="container">
+  <div class="navbar-wrapper landing">
+    <div class="container">
+      <nav ng-cloak class="navbar navbar-default navbar-fixed-top landing" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+              <div>PassportEDU</div>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <magic-link ng-repeat='link in client.links | semantics: {importance: "navigation"}' click="traverse" link="link" ng-cloak></magic-link>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show='(client.links | semantics: {importance:"administrative"}).length'>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-cog"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li ng-click="traverse()" ng-repeat='link in client.links | semantics: {importance:"administrative"}'>
+                    <a ng-bind="link._link.title"></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <a href="http://blog.passportedu.com" class="btn btn-md btn-default" onclick="mixpanel.track('Blog');">Blog</a>
+              <a href="" class="btn btn-md btn-success">Pricing</a>
+            </form>
+            <div class="navbar-right">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+<div>
+  <img class="passportLogoDesktop" src="/assets/images/passportEDU_nb.png">
+</div>
+<div class="jumbotron passportProp">
+
+</div>
+</body>
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="/client.css">
+<script src="/libs/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+  mixpanel.track('Admissions Lets Go');
+  var lastY;
+  $(document).bind('touchmove', function(e) {
+    var currentY = e.touches[0].clientY;
+    if (currentY !== lastY) {
+      // moved vertically
+      return;
+    }
+    lastY = currentY;
+    e.preventDefault();
+  });
+</script>
+</html>

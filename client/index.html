@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>PassportEDU</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/angular-drag-drop/css/draganddrop.css">
+  <link rel="stylesheet" type="text/css" href="/client.css">
+  <link rel="stylesheet" type="text/css" href="/css/animations.css">
+  <link rel="stylesheet" type="text/css" href="/css/helper.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body ng-app="client" ng-cloak>
+<div ng-controller="ClientArea" capture-save>
+  <div ng-include="'/templates' + client.url"></div>
+
+  <div style="display:none;">
+    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+      +/-
+    </a>
+
+    <div id="collapseOne" class="panel-collapse collapse out col-md-12">
+      <div class="well">
+        <h2>Data</h2>
+        <pre ng-bind="client.data | json"></pre>
+      </div>
+      <div class="well">
+        <h2>Schema</h2>
+        <pre ng-bind="client.schema | json"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/libs/underscore-1.4.4.js"></script>
+<script src="/libs/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/libs/keypress.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-touch.min.js"></script>
+<script src="/libs/angular-drag-drop/angular-dnd.js"></script>
+<script src="/base64.js"></script>
+<script src="/schemaCrawler.js"></script>
+<script src="/client.js"></script>
+</body>
+</html>

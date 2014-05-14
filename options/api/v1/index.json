@@ -1,0 +1,12 @@
+{
+  "id": "/api/v1",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PassportEDU",
+  "name": "PassportEDU",
+  "type": "object",
+  "description": "Bringing global students together with global schools.",
+  "properties": {
+  },
+  "links": [
+  ]
+}

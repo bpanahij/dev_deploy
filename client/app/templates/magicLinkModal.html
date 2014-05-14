@@ -1,0 +1,144 @@
+<div ng-if="link._link.properties || (link._link.method !== 'GET' && link._link.method !== 'DELETE')"
+  id="{{link._link.title | fieldName}}"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-hidden="true">&times;</button>
+        <h4 class="modal-title"
+          ng-bind="link._link.title"></h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal"
+          role="form">
+          <div ng-repeat="(propName, property) in link._link.properties"
+            class="form-group">
+            <label ng-bind="property.title"
+              class="col-sm-6 control-label"
+              for="{{propName}}"></label>
+
+            <div ng-switch="property.type"
+              class="col-sm-6">
+              <input id="{{propName}}"
+                ng-switch-when="string"
+                type="text"
+                class="form-control"
+                ng-model="property.value">
+              <input id="{{propName}}"
+                ng-switch-when="number"
+                type="number"
+                class="form-control"
+                ng-model="property.value">
+              <input id="{{propName}}"
+                ng-switch-when="password"
+                type="password"
+                class="form-control"
+                ng-model="property.value">
+              <input id="{{propName}}"
+                ng-switch-when="date-time"
+                type="date"
+                class="form-control"
+                ng-model="property.value">
+              <input id="{{propName}}"
+                ng-switch-when="email"
+                type="email"
+                class="form-control"
+                ng-model="property.value">
+
+              <div ng-switch-when="range"
+                class="input-group">
+                          <span ng-bind="property.value"
+                            class="input-group-addon"></span>
+                <input id="{{propName}}"
+                  type="range"
+                  min="{{property.min}}"
+                  max="{{property.max}}"
+                  class="form-control"
+                  ng-model="property.value">
+              </div>
+              <div ng-switch-when="array"
+                ng-switch="property.items.type">
+                <input id="{{propName}}"
+                  ng-switch-when="string"
+                  type="text"
+                  class="form-control"
+                  ng-model="property.value">
+                <input id="{{propName}}"
+                  ng-switch-when="number"
+                  type="number"
+                  class="form-control"
+                  ng-model="property.value">
+                <input id="{{propName}}"
+                  ng-switch-when="password"
+                  type="password"
+                  class="form-control"
+                  ng-model="property.value">
+                <input id="{{propName}}"
+                  ng-switch-when="date-time"
+                  type="date"
+                  class="form-control"
+                  ng-model="property.value">
+                <textarea id="{{propName}}"
+                  ng-switch-when="any"
+                  class="form-control"
+                  ng-model="property.value">
+                </textarea>
+                <select id="{{propName}}"
+                  ng-switch-when="enum"
+                  class="form-control"
+                  ng-options="v as v for (k,v) in property.items.enum"
+                  ng-model="property.value">
+                </select>
+              </div>
+              <textarea id="{{propName}}"
+                ng-switch-when="any"
+                class="form-control"
+                ng-model="property.value">
+              </textarea>
+
+              <div ng-switch-when="object">
+                <textarea id="{{propName}}"
+                  class="form-control"
+                  ng-model="property.value">
+                </textarea>
+                <pre ng-bind="property.value"></pre>
+              </div>
+              <select id="{{propName}}"
+                ng-switch-when="enum"
+                class="form-control"
+                ng-options="v as v for (k,v) in property.enum"
+                ng-model="property.value">
+              </select>
+            </div>
+            <div class="col-sm-6 control-label"
+              ng-bind="property.description">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button ng-click="click()"
+                type="submit"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                aria-hidden="true">
+                <i class="glyphicon glyphicon-white"
+                  ng-class="{
+                  'glyphicon-plus-sign': link._link.method == 'POST',
+                  'glyphicon-pencil': link._link.method == 'PUT',
+                  'glyphicon-tags': link._link.properties
+                  }"></i>
+                &nbsp;
+                <span ng-bind="link._link.title"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

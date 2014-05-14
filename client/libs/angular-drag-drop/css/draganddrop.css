@@ -1,0 +1,48 @@
+﻿[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+/*
+drop element
+*/
+.drop {
+    margin:20px;
+    min-height: 200px;
+    padding: 25px;
+    border: 1px dashed #fff;
+}
+
+/*
+drag element
+*/
+.drag {
+    cursor: move;
+}
+
+/*
+element being dragged
+*/
+.on-drag {
+    opacity: 0.6;
+}
+
+/*
+class added to all .drop elements while dragging
+*/
+.draging {
+    padding: 25px;
+    background: #ededed;
+    border: 1px dashed #000;
+    border-radius: 10px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}

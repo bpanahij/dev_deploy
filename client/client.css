@@ -1,0 +1,374 @@
+body {
+    overflow-y: scroll;
+    padding-bottom: 120px;
+    padding-top: 30px;
+}
+
+.modal .modal-body {
+    max-height: 750px;
+    overflow-y: auto;
+}
+
+.nav, .pagination li {
+    cursor: pointer
+}
+
+.drop {
+    margin: 0px;
+    min-height: 100px;
+    padding: 0px;
+    border: 1px dashed #fff;
+}
+
+.extraSmallCard {
+    width: 310px;
+    /*height: 200px;*/
+    margin: 10px;
+}
+
+.smallCard {
+    width: 310px;
+    /*height: 250px;*/
+    margin: 10px;
+}
+
+.mediumCard {
+    width: 310px;
+    /*height: 360px;*/
+    margin: 10px;
+}
+
+.largeCard {
+    width: 310px;
+    /*height: 520px;*/
+    margin: 10px;
+}
+
+.heroCard {
+    margin: 15px;
+}
+
+.navCard {
+    min-height: 35px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.navCard:after {
+    content: " ";
+    width: 600px;
+    height: 150px;
+    position: relative;
+}
+
+.leftPanel {
+    position: fixed;
+    height: 100%;
+    width: 100px;
+    left: 0px;
+    top: 0px;
+    border-right: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 100px;
+}
+
+.dangerDelete {
+    border: 1px solid red;
+}
+
+.suggestAdd {
+    border: 1px solid green;
+}
+
+@media only screen
+and (min-device-width: 310px)
+and (max-device-width: 568px)
+and (orientation: portrait) {
+    .container {
+        padding: 0px;
+    }
+
+    .extraSmallCard, .smallCard, .mediumCard, .largeCard, .heroCard {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+.pinColumns {
+    -moz-column-count: 1;
+    -moz-column-gap: 10px;
+    -moz-column-fill: auto;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 10px;
+    -webkit-column-fill: auto;
+    column-count: 1;
+    column-gap: 3px;
+    column-fill: auto;
+}
+
+.pin {
+    -moz-column-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+    display: inline-block;
+    margin: 5px;
+    padding: 0;
+    border: none;
+}
+
+.landing {
+    background: #FFF;
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+
+    .pinColumns {
+        -moz-column-gap: 3px;
+        -moz-column-fill: auto;
+        -webkit-column-gap: 3px;
+        -webkit-column-fill: auto;
+        column-gap: 3px;
+        column-fill: auto;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+
+    .landing {
+        background: #FFF;
+        color: black;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+
+    .pinColumns {
+        -moz-column-gap: 3px;
+        -moz-column-fill: auto;
+        -webkit-column-gap: 3px;
+        -webkit-column-fill: auto;
+        column-gap: 3px;
+        column-fill: auto;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.dropCard {
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+}
+
+.draging {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+}
+
+.dragOver {
+    background: #d9edf7;
+}
+
+.dropBottom {
+    position: relative;
+}
+
+.buttonSpace {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.passLogoDesktop {
+    height: 20px;
+}
+
+.passLogoMobile {
+    height: 70px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    z-index: 100;
+}
+
+.logoHolder {
+    width: 100px;
+}
+
+.circleNumber {
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 120px;
+    margin-right: 5px;
+    text-align: center;
+    width: 120px;
+}
+
+.lightGreenCircle {
+    background: lightgreen;
+}
+
+.mediumGreenCircle {
+    background: forestgreen;
+}
+
+.darkGreenCircle {
+    background: darkgreen;
+}
+
+.blueCircle {
+    background: steelblue;
+}
+
+.greenCircle {
+    background: forestgreen;
+}
+
+.orangeCircle {
+    background: darkorange;
+}
+
+.redCircle {
+    background: red;
+}
+
+.yellowCircle {
+    background: #ffff00;
+}
+
+.largeWord {
+    font-size: 4em;
+    font-weight: 900;
+}
+
+.largeYesNo {
+    font-size: 4em;
+    font-weight: 900;
+}
+
+.greenWord {
+    color: forestgreen;;
+}
+
+.redWord {
+    color: red;
+}
+
+.shadowText {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 3px 0 40px #000;
+    color: #FFF;
+    font-size: 20px;
+    z-index: 100;
+    top: 45%;
+    left: 10%;
+    width: 50%;
+    position: absolute;
+}
+
+.shadowText h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+}
+
+.shadowText a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 1020px) {
+    .shadowText h1 {
+        font-size: 40px;
+    }
+
+    .shadowText {
+        font-size: 30px;
+    }
+}
+
+#passportHero {
+    border-top: 9px solid #333;
+    background: #333;
+    margin-top: 15px;
+    border-bottom: 9px solid #333;
+    max-height: 800px;
+    overflow: hidden;
+}
+
+#mobileHero {
+    margin-top: 15px;
+    border-top: 9px solid #555;
+    border-bottom: 9px solid #555;
+    width: 100%;
+    height: auto;
+}
+
+#passportHero video {
+    /*max-height: 800px;*/
+}
+
+.passportLogoDesktop {
+    height: 165px;
+    position: absolute;
+    top: 70px;
+    left: 10%;
+    z-index: 100000;
+}
+
+.breadcrumb {
+    display: inline-block;
+}
+
+.breadcrumb > li {
+    display: inline;
+}
+
+.landing .navbar-brand {
+    color: black;
+}
+
+.panel input.ng-valid-required.ng-pristine {
+    border-color: #AAA;
+    color: #333;
+}
+
+.panel input.ng-valid-required.ng-dirty {
+    border-color: green;
+}
+
+.panel input.ng-invalid-required {
+    border-color: blue;
+}
+
+.panel select.ng-valid-required.ng-pristine {
+    border-color: #AAA;
+}
+
+.panel select.ng-valid-required.ng-dirty {
+    border-color: green;
+}
+
+.panel select.ng-invalid-required {
+    border-color: blue;
+}
+
+.letsGoPanel {
+    height: 320px;
+}
+
+.letsGoWidePanel {
+
+}
